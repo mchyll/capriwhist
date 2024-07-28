@@ -1,5 +1,7 @@
 {
-    "files.exclude": {
-        "**/node_modules": true
-    }
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

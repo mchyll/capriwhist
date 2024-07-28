@@ -12,7 +12,7 @@ export function getAccumulatedScores(players: string[], rounds: Round[]) {
   return players.map((player, playerIndex) => ({
     player,
     points: rounds
-      .map(round => getPoints(round.plays[playerIndex]) ?? 0)
-      .reduce((acc, curr) => acc + curr, 0)
-  }))
+      .map((round) => getPoints(round.plays[playerIndex]) ?? 0)
+      .reduce((acc, curr) => acc + curr, 0),
+  }));
 }

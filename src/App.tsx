@@ -1,12 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Route, Switch, useHistory } from 'react-router-dom';
-import { Game } from './game/Game';
-import { Reset } from './game/Reset';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function App() {
-  const nav = useHistory();
+  const nav = useNavigate();
   return (
     <>
       <Navbar expand={false} bg="light" collapseOnSelect>
@@ -14,7 +11,11 @@ function App() {
           <Navbar.Brand>Capriwhist</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <Nav onSelect={href => { href !== null && nav.push(href) }}>
+            <Nav
+              onSelect={(href) => {
+                href !== null && nav(href);
+              }}
+            >
               <Nav.Link eventKey="/">Gå til spillet</Nav.Link>
               <Nav.Link eventKey="/reset">Nullstill spillet</Nav.Link>
             </Nav>
@@ -24,18 +25,11 @@ function App() {
 
       <div className="game-container">
         <div className="game">
-          <Switch>
-            <Route path="/reset">
-              <Reset />
-            </Route>
-            <Route path={["/", "/game"]}>
-              <Game />
-            </Route>
-          </Switch>
+          <Outlet />
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default App;

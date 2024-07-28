@@ -1,209 +1,183 @@
 body {
-    transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 
 body.setBids {
-    background-color: #A0CED9;
+  background-color: #a0ced9;
 }
 
 body.setGots {
-    background-color: #ADF7B6;
+  background-color: #adf7b6;
 }
 
 .navbar-container {
-    max-width: 700px !important;
+  max-width: 700px !important;
 }
 
 .game-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .game {
-    padding: 10px;
-    width: 100%;
-    max-width: 700px;
+  padding: 10px;
+  width: 100%;
+  max-width: 700px;
 }
-  
+
 .menu-row {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .menu-row:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .menu-row:last-of-type {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .player-row {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .current-player-question {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .current-player-question b {
-    font-size: x-large;
-    margin-top: -5px;
+  font-size: x-large;
+  margin-top: -5px;
 }
 
 .stikk-buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .stikk-buttons-container > button {
-    width: 25%;
-    font-size: x-large;
-    margin: 10px;
+  width: 25%;
+  font-size: x-large;
+  margin: 10px;
 }
-
-
-
 
 .undo-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-
-
-
-
-
-
 table.scoreboard {
-    border-style: hidden;
-    width: 100%;
+  border-style: hidden;
+  width: 100%;
 }
 
 table.scoreboard th,
 table.scoreboard td {
-    border: 1px solid lightgray;
-    padding: 5px;
+  border: 1px solid lightgray;
+  padding: 5px;
 }
 
 table.scoreboard thead {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 table.scoreboard .bid-got {
-    display: flex;
-    flex-direction: column;
-    /* font-size: small; */
+  display: flex;
+  flex-direction: column;
+  /* font-size: small; */
 }
 
 table.scoreboard .results {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 table.scoreboard .points {
-    /* flex-grow: 1; */
-    font-size: larger;
-    text-align: center;
+  /* flex-grow: 1; */
+  font-size: larger;
+  text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
 div.scoreboard .round {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 div.scoreboard .round:not(:last-of-type) {
-    /* border-bottom: 1px solid lightgray; */
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+  /* border-bottom: 1px solid lightgray; */
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 div.scoreboard .round .round-num {
-    font-size: x-large;
-    margin-right: 10px;
-    width: 30px;
+  font-size: x-large;
+  margin-right: 10px;
+  width: 30px;
 }
 
 div.scoreboard .round .round-players {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 div.scoreboard .round .round-players .player {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 div.scoreboard .round .round-players .player:not(:last-of-type) {
-    /* border-bottom: 1px solid lightgray; */
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+  /* border-bottom: 1px solid lightgray; */
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 div.scoreboard .round:not(:last-of-type),
 div.scoreboard .round .round-players .player:not(:last-of-type) {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 body.light div.scoreboard .round:not(:last-of-type),
 body.light div.scoreboard .round .round-players .player:not(:last-of-type) {
-    border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 div.scoreboard .round .round-players .player :not(:last-child) {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 div.scoreboard .round .round-players .player .player-name {
-    width: 100px;
-    flex-grow: 1;
+  width: 100px;
+  flex-grow: 1;
 }
 
 div.scoreboard .round .round-players .player .points {
-    width: 40px;
-    font-size: x-large;
-    text-align: right;
+  width: 40px;
+  font-size: x-large;
+  text-align: right;
 }
 
-
-
-
-
-
 div.scoreboard-sum {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin: 20px 0px;
 }
 
 div.scoreboard-sum > div {
-    /* width: 50px; */
-    font-size: larger;
-    /* margin: 10px; */
-    text-align: center;
+  /* width: 50px; */
+  font-size: larger;
+  /* margin: 10px; */
+  text-align: center;
 }
 
-
-
 .round-title {
-    display: flex;
-    justify-content: space-between;
-    /* font-size: larger; */
+  display: flex;
+  justify-content: space-between;
+  /* font-size: larger; */
 }

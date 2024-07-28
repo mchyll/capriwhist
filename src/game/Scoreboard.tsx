@@ -1,27 +1,26 @@
-import React from 'react';
-import { useAppDispatch } from '../app/hooks';
-import { useGameState } from './GameSlice';
-import { getAccumulatedScores, getPoints } from './Mechanics';
+import React from "react";
+import { useAppDispatch } from "../app/hooks";
+import { useGameState } from "./GameSlice";
+import { getAccumulatedScores, getPoints } from "./Mechanics";
 
 export function Scoreboard(props: { runningScore?: boolean }) {
   const { players, rounds } = useGameState();
 
   return (
     <>
-
-      {props.runningScore &&
+      {props.runningScore && (
         <div className="menu-row scoreboard-sum">
-          {getAccumulatedScores(players, rounds).map((player) =>
+          {getAccumulatedScores(players, rounds).map((player) => (
             <div>
               <div>{player.player}</div>
               <div>{player.points}</div>
             </div>
-          )}
+          ))}
         </div>
-      }
+      )}
 
       <div className="menu-row scoreboard">
-        {rounds.map((round, roundIndex) =>
+        {rounds.map((round, roundIndex) => (
           <div className="round">
             <div className="round-num">{roundIndex + 1}</div>
             <div className="round-players">
@@ -31,20 +30,20 @@ export function Scoreboard(props: { runningScore?: boolean }) {
                   <div className="player">
                     <div className="player-name">{player}</div>
                     <div>
-                      {play !== undefined &&
+                      {play !== undefined && (
                         <>
                           <div>Bud: {play.bid}</div>
                           <div>Fikk: {play.got}</div>
                         </>
-                      }
+                      )}
                     </div>
                     <div className="points">{getPoints(play)}</div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
-        )}
+        ))}
 
         {/*
         <table className="scoreboard">
@@ -82,9 +81,7 @@ export function Scoreboard(props: { runningScore?: boolean }) {
           </tbody>
         </table>
         */}
-
       </div>
-
     </>
-  )
+  );
 }
