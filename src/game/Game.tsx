@@ -1,14 +1,15 @@
-import "./Game.css";
-import { StartMenu } from "./StartMenu";
-import { SetBids } from "./SetBids";
-import { SetGots } from "./SetGots";
 import { useEffect } from "react";
-import { Scoreboard } from "./Scoreboard";
+import { Button } from "react-bootstrap";
+import { ActionCreators as UndoActions } from "redux-undo";
+import { useAppDispatch } from "../app/hooks";
+import "./Game.css";
 import { GameOver } from "./GameOver";
 import { useGameState } from "./GameSlice";
-import { ActionCreators as UndoActions } from "redux-undo";
-import { Button } from "react-bootstrap";
-import { useAppDispatch } from "../app/hooks";
+import { Scoreboard } from "./Scoreboard";
+import { SetBids } from "./SetBids";
+import { SetGots } from "./SetGots";
+import { ShuffleCards } from "./ShuffleCards";
+import { StartMenu } from "./StartMenu";
 
 export function Game() {
   const { state } = useGameState();
@@ -38,7 +39,15 @@ export function Game() {
     </div>
   );
 
-  if (state === "SET_BIDS") {
+  if (state === "SHUFFLE_CARDS") {
+    return (
+      <>
+        <ShuffleCards />
+        <UndoButton />
+        <Scoreboard runningScore />
+      </>
+    );
+  } else if (state === "SET_BIDS") {
     return (
       <>
         <SetBids />
@@ -61,11 +70,13 @@ export function Game() {
         <Scoreboard />
       </>
     );
+  } else if (state === "START_MENU") {
+    return (
+      <>
+        <StartMenu />
+      </>
+    );
+  } else {
+    return <>Unknown state: {state}</>;
   }
-
-  return (
-    <>
-      <StartMenu />
-    </>
-  );
 }

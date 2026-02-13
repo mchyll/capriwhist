@@ -14,7 +14,7 @@ export interface RoundPlay {
 export interface GameState {
   players: string[];
   rounds: Round[];
-  state: "START_MENU" | "SET_BIDS" | "SET_GOT" | "GAME_OVER";
+  state: "START_MENU" | "SHUFFLE_CARDS" | "SET_BIDS" | "SET_GOT" | "GAME_OVER";
   currentPlayer: number;
   currentRound: number;
 }
@@ -49,9 +49,12 @@ export const gameSlice = createSlice({
           plays: [],
         };
       }
-      state.state = "SET_BIDS";
+      state.state = "SHUFFLE_CARDS";
       state.currentPlayer = 0;
       state.currentRound = 0;
+    },
+    startBids: (state) => {
+      state.state = "SET_BIDS";
     },
     setBid: (state, action: PayloadAction<number>) => {
       if (state.state === "SET_BIDS") {
@@ -74,7 +77,7 @@ export const gameSlice = createSlice({
             state.currentPlayer = 0;
             state.currentRound = 0;
           } else {
-            state.state = "SET_BIDS";
+            state.state = "SHUFFLE_CARDS";
             state.currentPlayer = 0;
           }
         }
@@ -86,7 +89,14 @@ export const gameSlice = createSlice({
 
 export const useGameState = () => useAppSelector((state) => state.game.present);
 
-export const { addPlayer, removePlayer, startGame, setBid, setGot, resetGame } =
-  gameSlice.actions;
+export const {
+  addPlayer,
+  removePlayer,
+  startGame,
+  startBids,
+  setBid,
+  setGot,
+  resetGame,
+} = gameSlice.actions;
 
 export default gameSlice.reducer;

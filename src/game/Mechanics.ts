@@ -16,3 +16,6 @@ export function getAccumulatedScores(players: string[], rounds: Round[]) {
       .reduce((acc, curr) => acc + curr, 0),
   }));
 }
+
+export const getNumCards = (roundsIndex: number) =>
+  roundsIndex < 10 ? 10 - roundsIndex : roundsIndex - 9;

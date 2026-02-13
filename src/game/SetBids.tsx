@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "react-bootstrap/Button";
 import { useAppDispatch } from "../app/hooks";
 import { setBid, useGameState } from "./GameSlice";
@@ -25,7 +24,9 @@ export function SetBids() {
 
       <div className="menu-row stikk-buttons-container">
         {bidOptions.map((n) => (
-          <Button onClick={() => dispatch(setBid(n))}>{n}</Button>
+          <Button onClick={() => dispatch(setBid(n))} key={n}>
+            {n}
+          </Button>
         ))}
       </div>
     </>

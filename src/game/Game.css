@@ -181,3 +181,11 @@ div.scoreboard-sum > div {
   justify-content: space-between;
   /* font-size: larger; */
 }
+
+.shuffle-cards-text {
+  font-size: 20px;
+}
+
+.text-center {
+  text-align: center;
+}

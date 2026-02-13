@@ -1,5 +1,3 @@
-import React from "react";
-import { useAppDispatch } from "../app/hooks";
 import { useGameState } from "./GameSlice";
 import { getAccumulatedScores, getPoints } from "./Mechanics";
 
@@ -10,8 +8,8 @@ export function Scoreboard(props: { runningScore?: boolean }) {
     <>
       {props.runningScore && (
         <div className="menu-row scoreboard-sum">
-          {getAccumulatedScores(players, rounds).map((player) => (
-            <div>
+          {getAccumulatedScores(players, rounds).map((player, playerIndex) => (
+            <div key={playerIndex}>
               <div>{player.player}</div>
               <div>{player.points}</div>
             </div>
@@ -21,13 +19,13 @@ export function Scoreboard(props: { runningScore?: boolean }) {
 
       <div className="menu-row scoreboard">
         {rounds.map((round, roundIndex) => (
-          <div className="round">
+          <div className="round" key={roundIndex}>
             <div className="round-num">{roundIndex + 1}</div>
             <div className="round-players">
               {players.map((player, playerIndex) => {
                 const play = round.plays[playerIndex];
                 return (
-                  <div className="player">
+                  <div className="player" key={playerIndex}>
                     <div className="player-name">{player}</div>
                     <div>
                       {play !== undefined && (

@@ -57,7 +57,7 @@ export function StartMenu() {
       </div>
 
       {players.map((playerName, playerIndex) => (
-        <div className="menu-row player-row">
+        <div className="menu-row player-row" key={playerIndex}>
           <span>{playerName}</span>
           <Button
             size="sm"
